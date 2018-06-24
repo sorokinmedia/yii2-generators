@@ -1,8 +1,8 @@
 <?php
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
-use ma3oBblu\gii\generators\form\GeneratorAsset;
 use ma3obblu\gii\generators\form\Generator;
+use ma3obblu\gii\generators\form\GeneratorAsset;
 
 /** @var $this View */
 /** @var $form ActiveForm */
