@@ -18,7 +18,7 @@ use yii\gii\CodeFile;
 class Generator extends \yii\gii\Generator
 {
     public $modelClass;
-    public $componentUrl = 'common\components';
+    public $componentUrl = '@common/components';
     public $formUrl = 'forms';
     public $formClass;
 
