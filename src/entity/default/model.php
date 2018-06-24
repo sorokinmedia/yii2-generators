@@ -7,13 +7,14 @@ use ma3obblu\gii\generators\helpers\GeneratorHelper;
 /** @var $className string class name */
 /** @var $classARName string AR class name */
 /** @var $classFormName string Form class name */
+/** @var $nsForm string Form class namespace */
 /** @var $properties array list of properties (property => [type, name. comment]) */
 
 echo "<?php\n";
 ?>
 namespace <?= $generator->ns ?>;
 
-use <?= $generator->ns . '\\' . $className . "Form;\n"; ?>
+use <?= $nsForm . $classFormName . ";\n"; ?>
 use yii\db\Exception;
 
 /**
@@ -45,14 +46,13 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
     public function getFromForm()
     {
         if (!is_null($this->form)){
-<?= GeneratorHelper::generateGetFromForm($properties); ?>
+<?= GeneratorHelper::generateGetFromForm($properties, $generator->needId); ?>
         }
     }
 
     /**
      * добавление модели в БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      */
@@ -68,7 +68,6 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
     /**
      * обновление модели в БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      * @throws \yii\db\StaleObjectException
@@ -85,7 +84,6 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
     /**
      * удаление модели из БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      * @throws \yii\db\StaleObjectException

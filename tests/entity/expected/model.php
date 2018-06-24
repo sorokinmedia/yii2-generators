@@ -46,7 +46,6 @@ class Post extends PostAR
     /**
      * добавление модели в БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      */
@@ -62,7 +61,6 @@ class Post extends PostAR
     /**
      * обновление модели в БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      * @throws \yii\db\StaleObjectException
@@ -79,7 +77,6 @@ class Post extends PostAR
     /**
      * удаление модели из БД
      * @return bool
-     * @throws Exception
      * @throws \Exception
      * @throws \Throwable
      * @throws \yii\db\StaleObjectException

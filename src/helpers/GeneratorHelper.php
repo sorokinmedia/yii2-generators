@@ -205,12 +205,14 @@ class GeneratorHelper
     /**
      * генерирует строки переноса значений атрибутов из формы в сущность
      * @param array $properties
+     * @param bool $needId
      * @return string
      */
-    public static function generateGetFromForm(array $properties) : string
+    public static function generateGetFromForm(array $properties, bool $needId = false) : string
     {
         $result = "";
         foreach ($properties as $property => $data){
+            if ($needId === false && $property === 'id') continue;
             $result .= "            $" . "this->" . $property . " = $" . "this->form->" . $property . ";\n";
         }
         return $result;
