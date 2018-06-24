@@ -45,5 +45,5 @@ class <?= $generator->getFormClassName(); ?> extends Model
         ];
     }
 
-<?= GeneratorHelper::generateFormConstructor($entity); ?>
+<?= GeneratorHelper::generateFormConstructor($entity, $generator->getAttributes); ?>
 }

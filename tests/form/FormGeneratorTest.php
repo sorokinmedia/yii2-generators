@@ -72,6 +72,7 @@ class FormGeneratorTest extends TestCase
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
+        $generator->getAttributes = true;
 
         /** @var CodeFile[] $files */
         $this->assertCount(1, $files = $generator->generate());
@@ -91,10 +92,31 @@ class FormGeneratorTest extends TestCase
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
         $generator->needId = true;
+        $generator->getAttributes = true;
 
         /** @var CodeFile[] $files */
         $this->assertCount(1, $files = $generator->generate());
         $this->assertStringEqualsFile(__DIR__ . '/expected/class-needid.php', $files[0]->content);
+    }
+
+    /**
+     * тест генерации файла
+     */
+    public function testGenerateFileNoAttributes()
+    {
+        $this->initDb();
+
+        $generator = new FormGenerator();
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->componentUrl = '@tests/runtime/data';
+        $generator->formClass = 'PostForm';
+        $generator->formUrl = 'forms';
+        $generator->needId = false;
+        $generator->getAttributes = false;
+
+        /** @var CodeFile[] $files */
+        $this->assertCount(1, $files = $generator->generate());
+        $this->assertStringEqualsFile(__DIR__ . '/expected/class-noattributes.php', $files[0]->content);
     }
 
     /**

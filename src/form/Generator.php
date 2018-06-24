@@ -15,6 +15,7 @@ use yii\gii\CodeFile;
  * @property string $formUrl
  * @property string $formClass
  * @property boolean $needId
+ * @property boolean $getAttributes
  */
 class Generator extends \yii\gii\Generator
 {
@@ -22,6 +23,7 @@ class Generator extends \yii\gii\Generator
     public $componentUrl = '@common/components';
     public $formUrl = 'forms';
     public $formClass;
+    public $getAttributes = false;
     public $needId = false;
 
     /**
@@ -63,7 +65,7 @@ class Generator extends \yii\gii\Generator
             [['formClass'], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
             [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['componentUrl'], 'validatePath'],
-            [['needId'], 'boolean']
+            [['needId', 'getAttributes'], 'boolean']
         ]);
     }
 
@@ -90,7 +92,8 @@ class Generator extends \yii\gii\Generator
             'componentUrl' => 'Component namespace',
             'formUrl' => 'Form folder path',
             'formClass' => 'Form Class name',
-            'needId' => 'Need ID attribute in form'
+            'needId' => 'Need ID attribute in form',
+            'getAttributes' => 'Use get/set attributes in constructor'
         ]);
     }
 
@@ -105,7 +108,8 @@ class Generator extends \yii\gii\Generator
             'componentUrl' => 'Type the namespace for component. Example @common/components/exchange',
             'formClass' => 'Type the name of form class. Example: ExchangeForm',
             'formUrl' => 'Type path to forms folder in component. Example: forms',
-            'needId' => 'Check if you need ID attribute in Form Class'
+            'needId' => 'Check if you need ID attribute in Form Class',
+            'getAttributes' => 'Excerpt default attribute to attribute set'
         ]);
     }
 

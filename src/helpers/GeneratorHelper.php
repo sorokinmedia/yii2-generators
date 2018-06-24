@@ -162,9 +162,11 @@ class GeneratorHelper
     /**
      * генерит конструктор формы
      * @param Model $entity
+     * @param boolean $getAttributes
+     * @param boolean $needId
      * @return string
      */
-    public static function generateFormConstructor(Model $entity)
+    public static function generateFormConstructor(Model $entity, bool $getAttributes = false, bool $needId = false)
     {
         $className = self::getClassNameWithoutNamespace(get_class($entity));
         $formClass = $className . "Form";
@@ -177,7 +179,15 @@ class GeneratorHelper
         $result .= "\n    public function __construct(array " . "$" . "config = [], " . $className . " $" . $paramName . " = null)";
         $result .= "\n    {";
         $result .= "\n        if (!is_null($". $paramName . ")){";
-        $result .= "\n            $" . "this->setAttributes($" . $paramName . "->getAttributes());";
+        if ($getAttributes === false) {
+            $attributes = array_keys($entity->getAttributes());
+            foreach ($attributes as $attribute){
+                if ($needId === false && $attribute === 'id') continue;
+                $result .= "\n            $" . "this->" . $attribute . " = $" . $paramName . "->" . $attribute . ";";
+            }
+        } else {
+            $result .= "\n            $" . "this->setAttributes($" . $paramName . "->getAttributes());";
+        }
         $result .= "\n        }";
         $result .= "\n        parent::__construct($" . "config);";
         $result .= "\n    }\n";
