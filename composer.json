@@ -1,5 +1,5 @@
 {
-    "name": "Ma3oBblu/yii2-generators",
+    "name": "ma3obblu/yii2-generators",
     "description": "Generators for Yii2(gii)",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "gii"],
@@ -23,9 +23,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Ma3oBblu\\gii\\form\\": "src/form/",
-            "Ma3oBblu\\gii\\form\\tests\\": "tests/form/",
-            "Ma3oBblu\\gii\\helpers": "src/helpers"
+            "ma3obblu\\gii\\form\\": "src/form/",
+            "ma3obblu\\gii\\form\\tests\\": "tests/form/",
+            "ma3obblu\\gii\\helpers": "src/helpers"
         }
     },
     "extra": {
