@@ -13,4 +13,4 @@ echo $form->field($generator, 'modelClass');
 echo $form->field($generator, 'componentUrl');
 echo $form->field($generator, 'formUrl');
 echo $form->field($generator, 'formClass');
-echo $form->field($generator, 'needID')->checkbox();
+echo $form->field($generator, 'needId')->checkbox();

@@ -90,7 +90,7 @@ class Generator extends \yii\gii\Generator
             'componentUrl' => 'Component namespace',
             'formUrl' => 'Form folder path',
             'formClass' => 'Form Class name',
-            'needID' => 'Need ID attribute in form'
+            'needId' => 'Need ID attribute in form'
         ]);
     }
 
