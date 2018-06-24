@@ -1,21 +1,19 @@
-# Fixture class generator for Gii module of Yii2 Framework
+# Generators for Gii module of Yii2 Framework
 
-The extension allows to generate fixture class on base of existing `ActiveRecord` model class. Also it allows to grab existing records from database into fixture data file.
-
-![Fixture Generator](screenshot.png)
+The extension allows to generate some types of classes on base of existing `ActiveRecord` model class. 
 
 ## Installation
 
 Install with composer:
 
 ```bash
-composer require --dev elisdn/yii2-gii-fixture-generator
+composer require --dev ma3obblu/yii2-generators
 ```
 
 or add
 
 ```bash
-"elisdn/yii2-gii-fixture-generator": "*"
+"ma3obblu/yii2-generators": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -27,7 +25,7 @@ $config['modules']['gii'] = [
     'class' => 'yii\gii\Module',
     'generators' => [
         'fixture' => [
-            'class' => 'elisdn\gii\fixture\Generator',
+            'class' => 'ma3obblu\gii\form\Generator',
         ],
     ],
 ];
