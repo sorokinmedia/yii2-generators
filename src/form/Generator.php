@@ -8,7 +8,7 @@ use yii\gii\CodeFile;
  * Генератор класса формы из класса сущности
  *
  * Class Generator
- * @package ma3obblu\gii\form
+ * @package ma3obblu\gii\generators\form
  *
  * @property string $modelClass
  * @property string $componentUrl
