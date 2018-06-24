@@ -38,6 +38,10 @@ class GeneratorHelper
         return mb_substr($result, 0, mb_strlen($result) - 2);
     }
 
+    /****************************************************************************************
+     * FORM GENERATOR
+     ***************************************************************************************/
+
     /**
      * генерит phpdoc для аттрибутов класса
      * @param Model $entity
@@ -191,6 +195,38 @@ class GeneratorHelper
         $result .= "\n        }";
         $result .= "\n        parent::__construct($" . "config);";
         $result .= "\n    }\n";
+        return $result;
+    }
+
+    /****************************************************************************************
+     * ENTITY GENERATOR
+     ***************************************************************************************/
+
+    /**
+     * генерирует строки переноса значений атрибутов из формы в сущность
+     * @param array $properties
+     * @return string
+     */
+    public static function generateGetFromForm(array $properties) : string
+    {
+        $result = "";
+        foreach ($properties as $property => $data){
+            $result .= "            $" . "this->" . $property . " = $" . "this->form->" . $property . ";\n";
+        }
+        return $result;
+    }
+
+    /**
+     * генерация attributeLabels в моделях
+     * @param array $labels
+     * @return string
+     */
+    public static function generateLabels(array $labels) : string
+    {
+        $result = "";
+        foreach ($labels as $name => $label){
+            $result .= "            '$name' => " . "\Yii::t('app', '" . addslashes($name) . "')" . ",\n";
+        }
         return $result;
     }
 }
