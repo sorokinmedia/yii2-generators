@@ -1,5 +1,5 @@
 <?php
-namespace Ma3oBblu\gii\fixture\tests;
+namespace Ma3oBblu\gii\generators\tests;
 
 use yii\console\Application;
 

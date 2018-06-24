@@ -23,9 +23,11 @@
     },
     "autoload": {
         "psr-4": {
-            "ma3obblu\\gii\\form\\": "src/form/",
-            "ma3obblu\\gii\\form\\tests\\": "tests/form/",
-            "ma3obblu\\gii\\helpers\\": "src/helpers/"
+            "ma3obblu\\gii\\generators\\": "src/",
+            "ma3obblu\\gii\\generators\\form\\": "src/form/",
+            "ma3obblu\\gii\\generators\\tests\\": "tests/",
+            "ma3obblu\\gii\\generators\\tests\\form\\": "tests/form/",
+            "ma3obblu\\gii\\generators\\helpers\\": "src/helpers/"
         }
     },
     "extra": {

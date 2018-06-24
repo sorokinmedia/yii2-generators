@@ -1,5 +1,5 @@
 <?php
-namespace Ma3oBblu\gii\helpers;
+namespace ma3oBblu\gii\generators\helpers;
 
 use yii\base\Model;
 use yii\helpers\Inflector;
@@ -29,13 +29,13 @@ class GeneratorHelper
      * @param array $array
      * @return string
      */
-    public static function implodeWithQuotes(string $glue = ',', array $array)
+    public static function implodeWithQuotes(string $glue = ', ', array $array)
     {
         $result = "";
         foreach ($array as $item){
             $result .= "'" . $item . "'" . $glue;
         }
-        return mb_substr($result, 0, mb_strlen($result) - 1);
+        return mb_substr($result, 0, mb_strlen($result) - 2);
     }
 
     /**
@@ -48,7 +48,7 @@ class GeneratorHelper
         $attributes = array_keys($entity->getAttributes());
         $result = "";
         foreach ($attributes as $attribute){
-            $result .= "\n* @property " . GeneratorHelper::getAttributeType($attribute, $entity->rules()) . " $" . $attribute . ";";
+            $result .= " * @property " . GeneratorHelper::getAttributeType($attribute, $entity->rules()) . " $" . $attribute . "\n";
         }
         return $result;
     }
@@ -63,7 +63,7 @@ class GeneratorHelper
         $result = "";
         $attributes = array_keys($entity->getAttributes());
         foreach ($attributes as $attribute){
-            $result .= "public $" . $attribute . ";\n";
+            $result .= "    public $" . $attribute . ";\n";
         }
         return $result;
     }
@@ -81,22 +81,22 @@ class GeneratorHelper
             foreach ($rule as $key => $value) {
                 if ($key === 0) {
                     if (is_array($value)){
-                        $string = "[[" . self::implodeWithQuotes(',', $value) . "],";
+                        $string = "            [[" . self::implodeWithQuotes(', ', $value) . "], ";
                     } else {
-                        $string = "[['" . $value . "'],";
+                        $string = "            [['" . $value . "'], ";
                     }
                 } elseif ($key === 1) {
-                    $string .= "'" . $value . "',";
+                    $string .= "'" . $value . "', ";
                 } else {
                     if (is_array($value)) {
-                        $string .= "'" . $key . "' => [" . self::implodeWithQuotes(',', $value) . "],";
+                        $string .= "'" . $key . "' => [" . self::implodeWithQuotes(', ', $value) . "], ";
                     } else {
                         $string .= "'" . $key . "' => " . $value;
                     }
                 }
             }
-            if (mb_substr($string, -1, 1) == ','){
-                $string = mb_substr($string, 0, mb_strlen($string) - 1);
+            if (mb_substr($string, -2, 2) == ', '){
+                $string = mb_substr($string, 0, mb_strlen($string) - 2);
             }
             $string .= "],";
             $result .= $string . "\n";
@@ -143,7 +143,7 @@ class GeneratorHelper
         $attributes = array_keys($entity->getAttributes());
         $result = "";
         foreach ($attributes as $attribute){
-            $result .= "'" . $attribute . "' => \Yii::t('app', '" . $entity->getAttributeLabel($attribute) . "'),\n";
+            $result .= "            '" . $attribute . "' => \Yii::t('app', '" . $entity->getAttributeLabel($attribute) . "'),\n";
         }
         return $result;
     }
@@ -158,13 +158,18 @@ class GeneratorHelper
         $className = self::getClassNameWithoutNamespace(get_class($entity));
         $formClass = $className . "Form";
         $paramName = Inflector::camel2id($className, '_');
-        $result = "/**\n * " . $formClass . " constructor.\n * @param array " . "$" . "config\n * @param " . $className . "|null $" . $paramName . "\n */";
-        $result .= "\npublic function __construct(array " . "$" . "config = [], " . $className . " $" . $paramName . " = null)";
-        $result .= "\n{";
-        $result .= "\n\tif (!is_null($". $paramName . ")){";
-        $result .= "\n\t\t$" . "this->setAttributes($" . $paramName . "->getAttributes());";
-        $result .= "\n\t}";
-        $result .= "\n\tparent::__construct($" . "config);\n}";
+        $result = "    /**\n";
+        $result .= "     * " . $formClass . " constructor.\n";
+        $result .= "     * @param array " . "$" . "config\n";
+        $result .= "     * @param " . $className . "|null $" . $paramName . "\n";
+        $result .= "     */";
+        $result .= "\n    public function __construct(array " . "$" . "config = [], " . $className . " $" . $paramName . " = null)";
+        $result .= "\n    {";
+        $result .= "\n        if (!is_null($". $paramName . ")){";
+        $result .= "\n            $" . "this->setAttributes($" . $paramName . "->getAttributes());";
+        $result .= "\n        }";
+        $result .= "\n        parent::__construct($" . "config);";
+        $result .= "\n    }\n";
         return $result;
     }
 }

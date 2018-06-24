@@ -1,8 +1,8 @@
 <?php
 use yii\web\View;
 use yii\base\Model;
-use Ma3oBblu\gii\form\Generator;
-use Ma3oBblu\gii\helpers\GeneratorHelper;
+use ma3obblu\gii\generators\form\Generator;
+use ma3obblu\gii\generators\helpers\GeneratorHelper;
 
 /** @var $this View */
 /** @var $generator Generator */
@@ -11,19 +11,19 @@ use Ma3oBblu\gii\helpers\GeneratorHelper;
 $entity = new $generator->modelClass;
 echo "<?php\n";
 ?>
-namespace <?= $generator->componentUrl . "\\" . $generator->formUrl ?>;
+namespace <?= $generator->getNamespace() . "\\" . $generator->formUrl ?>;
 
 use yii\base\Model;
+use <?= $generator->modelClass; ?>;
 
 /**
- * Class <?= $generator->getFormClassName(); ?>
- * @package <?= $generator->componentUrl . "\\" . $generator->formUrl; ?>;
- *
- <?= GeneratorHelper::generatePhpDocForClassAttributes($entity); ?>
-*/
+ * Class <?= $generator->getFormClassName() . "\n"; ?>
+ * @package <?= $generator->getNamespace() . "\\" . $generator->formUrl . "\n *\n"; ?>
+<?= GeneratorHelper::generatePhpDocForClassAttributes($entity); ?>
+ */
 class <?= $generator->getFormClassName(); ?> extends Model
 {
-    <?= GeneratorHelper::generateClassParams($entity); ?>
+<?= GeneratorHelper::generateClassParams($entity); ?>
 
     /**
      * @inheritdoc
@@ -31,19 +31,19 @@ class <?= $generator->getFormClassName(); ?> extends Model
     public function rules()
     {
         return [
-            <?= GeneratorHelper::convertRules($entity);?>
+<?= GeneratorHelper::convertRules($entity);?>
         ];
     }
 
     /**
-    * @inheritdoc
-    */
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [
-            <?= GeneratorHelper::generateAttributeLabels($entity); ?>
+<?= GeneratorHelper::generateAttributeLabels($entity); ?>
         ];
     }
 
-    <?= GeneratorHelper::generateFormConstructor($entity); ?>
+<?= GeneratorHelper::generateFormConstructor($entity); ?>
 }

@@ -1,12 +1,14 @@
 <?php
-namespace Ma3oBblu\gii\form;
+namespace ma3obblu\gii\generators\form;
 
 use yii\db\ActiveRecord;
 use yii\gii\CodeFile;
 
 /**
+ * Генератор класса формы из класса сущности
+ *
  * Class Generator
- * @package Ma3oBblu\gii\form
+ * @package ma3obblu\gii\form
  *
  * @property string $modelClass
  * @property string $componentUrl
@@ -21,6 +23,7 @@ class Generator extends \yii\gii\Generator
     public $formClass;
 
     /**
+     * название генератора
      * @return string
      */
     public function getName()
@@ -29,6 +32,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * описание генератора
      * @return string
      */
     public function getDescription()
@@ -37,6 +41,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * автоматически заполненные атрибуты
      * @return array
      */
     public function stickyAttributes()
@@ -54,12 +59,13 @@ class Generator extends \yii\gii\Generator
             [['modelClass', 'componentUrl', 'formClass'], 'required'],
             [['modelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
             [['formClass'], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
-            [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::className()]],
+            [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['componentUrl'], 'validatePath'],
         ]);
     }
 
     /**
+     * валидация пути на существование
      * @param $attribute
      */
     public function validatePath($attribute)
@@ -71,6 +77,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * лейблы полей формы
      * @return array
      */
     public function attributeLabels()
@@ -84,6 +91,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * подсказки к полям формы
      * @return array
      */
     public function hints()
@@ -97,6 +105,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * дефолтные шаблоны
      * @return array
      */
     public function requiredTemplates()
@@ -105,20 +114,21 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * генерация файла
      * @return array|CodeFile[]
      */
     public function generate()
     {
         $files = [];
         $files[] = new CodeFile(
-            \Yii::getAlias('@' . str_replace('\\', '/', $this->componentUrl)) . '/' . $this->formUrl . '/' . $this->getFormClassName() . '.php',
+            $this->getFilePath(),
             $this->render('class.php')
         );
-
         return $files;
     }
 
     /**
+     * сформировать имя класса формы
      * @return string
      */
     public function getFormClassName()
@@ -131,6 +141,28 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * сформировать путь нового файла
+     * @return string
+     */
+    public function getFilePath() : string
+    {
+        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/' . $this->formUrl . '/' . $this->getFormClassName() . '.php';
+    }
+
+    /**
+     * получение namespace из указанного пути с алиасом
+     * @return string
+     */
+    public function getNamespace() : string
+    {
+        if (mb_substr($this->componentUrl, 0, 1) === '@'){
+            return str_replace('/', '\\', mb_substr($this->componentUrl, 1));
+        }
+        return str_replace('/', '\\', $this->componentUrl);
+    }
+
+    /**
+     * сообщение при успешной генерации
      * @return string
      */
     public function successMessage()

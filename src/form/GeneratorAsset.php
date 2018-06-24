@@ -1,5 +1,5 @@
 <?php
-namespace ma3oBblu\gii\form;
+namespace ma3oBblu\gii\generators\form;
 
 use yii\web\AssetBundle;
 
