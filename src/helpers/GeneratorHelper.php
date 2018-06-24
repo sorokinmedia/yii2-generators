@@ -41,13 +41,15 @@ class GeneratorHelper
     /**
      * генерит phpdoc для аттрибутов класса
      * @param Model $entity
+     * @param bool $needId
      * @return string
      */
-    public static function generatePhpDocForClassAttributes(Model $entity) : string
+    public static function generatePhpDocForClassAttributes(Model $entity, bool $needId = false) : string
     {
         $attributes = array_keys($entity->getAttributes());
         $result = "";
         foreach ($attributes as $attribute){
+            if ($needId === false && $attribute === 'id') continue;
             $result .= " * @property " . GeneratorHelper::getAttributeType($attribute, $entity->rules()) . " $" . $attribute . "\n";
         }
         return $result;
@@ -56,13 +58,15 @@ class GeneratorHelper
     /**
      * генерации объявления переменных из атрибутов модели
      * @param Model $entity
+     * @param bool $needId
      * @return string
      */
-    public static function generateClassParams(Model $entity) : string
+    public static function generateClassParams(Model $entity, bool $needId = false) : string
     {
         $result = "";
         $attributes = array_keys($entity->getAttributes());
         foreach ($attributes as $attribute){
+            if ($needId === false && $attribute === 'id') continue;
             $result .= "    public $" . $attribute . ";\n";
         }
         return $result;
@@ -71,9 +75,10 @@ class GeneratorHelper
     /**
      * конвертации rules модели в строку для вывода в шаблоне формы
      * @param Model $entity
+     * @param bool $needId
      * @return string
      */
-    public static function convertRules(Model $entity) : string
+    public static function convertRules(Model $entity, bool $needId = false) : string
     {
         $result = "";
         foreach ($entity->rules() as $rule) {
@@ -81,8 +86,12 @@ class GeneratorHelper
             foreach ($rule as $key => $value) {
                 if ($key === 0) {
                     if (is_array($value)){
+                        if ($needId === false && in_array('id', $value)) {
+                            unset($value[array_search('id', $value)]);
+                        }
                         $string = "            [[" . self::implodeWithQuotes(', ', $value) . "], ";
                     } else {
+                        if ($needId === false && $value === 'id') continue;
                         $string = "            [['" . $value . "'], ";
                     }
                 } elseif ($key === 1) {
@@ -136,13 +145,15 @@ class GeneratorHelper
     /**
      * генерирует описание атрибутов модели из самой модели
      * @param Model $entity
+     * @param bool $needId
      * @return string
      */
-    public static function generateAttributeLabels(Model $entity) : string
+    public static function generateAttributeLabels(Model $entity, bool $needId = false) : string
     {
         $attributes = array_keys($entity->getAttributes());
         $result = "";
         foreach ($attributes as $attribute){
+            if ($needId === false && $attribute === 'id') continue;
             $result .= "            '" . $attribute . "' => \Yii::t('app', '" . $entity->getAttributeLabel($attribute) . "'),\n";
         }
         return $result;

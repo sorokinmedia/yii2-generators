@@ -14,6 +14,7 @@ use yii\gii\CodeFile;
  * @property string $componentUrl
  * @property string $formUrl
  * @property string $formClass
+ * @property boolean $needId
  */
 class Generator extends \yii\gii\Generator
 {
@@ -21,6 +22,7 @@ class Generator extends \yii\gii\Generator
     public $componentUrl = '@common/components';
     public $formUrl = 'forms';
     public $formClass;
+    public $needId = false;
 
     /**
      * название генератора
@@ -61,6 +63,7 @@ class Generator extends \yii\gii\Generator
             [['formClass'], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
             [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['componentUrl'], 'validatePath'],
+            [['needId'], 'boolean']
         ]);
     }
 
@@ -83,10 +86,11 @@ class Generator extends \yii\gii\Generator
     public function attributeLabels()
     {
         return array_merge(parent::attributeLabels(), [
-            'modelClass' => 'Model Class',
-            'componentUrl' => 'Component URL',
-            'formUrl' => 'Form URL',
-            'formClass' => 'Form Class',
+            'modelClass' => 'Model Class path',
+            'componentUrl' => 'Component namespace',
+            'formUrl' => 'Form folder path',
+            'formClass' => 'Form Class name',
+            'needID' => 'Need ID attribute in form'
         ]);
     }
 
@@ -97,10 +101,11 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return array_merge(parent::hints(), [
-            'modelClass' => 'This is the model class...',
-            'componentUrl' => 'This is the namespace for component..',
-            'formClass' => 'This is the name for form class..',
-            'formUrl' => 'This is the name for the form folder in component..',
+            'modelClass' => 'Type full path to model class. Example: common\components\exchange\entities\Exchange\Exchange',
+            'componentUrl' => 'Type the namespace for component. Example @common/components/exchange',
+            'formClass' => 'Type the name of form class. Example: ExchangeForm',
+            'formUrl' => 'Type path to forms folder in component. Example: forms',
+            'needId' => 'Check if you need ID attribute in Form Class'
         ]);
     }
 

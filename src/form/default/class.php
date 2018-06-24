@@ -19,11 +19,11 @@ use <?= $generator->modelClass; ?>;
 /**
  * Class <?= $generator->getFormClassName() . "\n"; ?>
  * @package <?= $generator->getNamespace() . "\\" . $generator->formUrl . "\n *\n"; ?>
-<?= GeneratorHelper::generatePhpDocForClassAttributes($entity); ?>
+<?= GeneratorHelper::generatePhpDocForClassAttributes($entity, $generator->needId); ?>
  */
 class <?= $generator->getFormClassName(); ?> extends Model
 {
-<?= GeneratorHelper::generateClassParams($entity); ?>
+<?= GeneratorHelper::generateClassParams($entity, $generator->needId); ?>
 
     /**
      * @inheritdoc
@@ -31,7 +31,7 @@ class <?= $generator->getFormClassName(); ?> extends Model
     public function rules()
     {
         return [
-<?= GeneratorHelper::convertRules($entity);?>
+<?= GeneratorHelper::convertRules($entity, $generator->needId);?>
         ];
     }
 
@@ -41,7 +41,7 @@ class <?= $generator->getFormClassName(); ?> extends Model
     public function attributeLabels()
     {
         return [
-<?= GeneratorHelper::generateAttributeLabels($entity); ?>
+<?= GeneratorHelper::generateAttributeLabels($entity, $generator->needId); ?>
         ];
     }
 

@@ -79,6 +79,25 @@ class FormGeneratorTest extends TestCase
     }
 
     /**
+     * тест генерации файла
+     */
+    public function testGenerateFileNeedId()
+    {
+        $this->initDb();
+
+        $generator = new FormGenerator();
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->componentUrl = '@tests/runtime/data';
+        $generator->formClass = 'PostForm';
+        $generator->formUrl = 'forms';
+        $generator->needId = true;
+
+        /** @var CodeFile[] $files */
+        $this->assertCount(1, $files = $generator->generate());
+        $this->assertStringEqualsFile(__DIR__ . '/expected/class-needid.php', $files[0]->content);
+    }
+
+    /**
      * подготовка БД
      */
     private function initDb()

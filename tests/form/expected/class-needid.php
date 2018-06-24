@@ -8,6 +8,7 @@ use ma3obblu\gii\generators\tests\form\Post;
  * Class PostForm
  * @package tests\runtime\data\forms
  *
+ * @property //TODO $id
  * @property string $ticker
  * @property string $name
  * @property integer $type_id
@@ -17,6 +18,7 @@ use ma3obblu\gii\generators\tests\form\Post;
  */
 class PostForm extends Model
 {
+    public $id;
     public $ticker;
     public $name;
     public $type_id;
@@ -30,7 +32,7 @@ class PostForm extends Model
     public function rules()
     {
         return [
-            [['ticker', 'name', 'type_id', 'exchange_id'], 'required'],
+            [['id', 'ticker', 'name', 'type_id', 'exchange_id'], 'required'],
             [['ticker'], 'string', 'max' => 10],
             [['name'], 'string', 'max' => 255],
             [['type_id', 'exchange_id', 'sector_id'], 'integer'],
@@ -44,6 +46,7 @@ class PostForm extends Model
     public function attributeLabels()
     {
         return [
+            'id' => \Yii::t('app', 'ID'),
             'ticker' => \Yii::t('app', 'Тикер'),
             'name' => \Yii::t('app', 'Название'),
             'type_id' => \Yii::t('app', 'Тип'),
