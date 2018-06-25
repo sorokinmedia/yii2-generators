@@ -20,6 +20,8 @@ use <?= $generator->modelClass; ?>;
 /**
  * Class <?= $generator->handlerClass . "\n"; ?>
  * @package <?= $handler_namespace . "\n"; ?>
+ *
+ * @property <?= $generator->getModelClassName(); ?> $<?= $param_name ?>
  */
 class <?= $generator->handlerClass; ?> implements <?= ($generator->needCreate == true) ? 'Create,' : '';?> <?= ($generator->needUpdate == true) ? 'Update,' : '';?> <?= ($generator->needDelete == true) ? 'Delete' : ''; ?><?= "\n"; ?>
 {

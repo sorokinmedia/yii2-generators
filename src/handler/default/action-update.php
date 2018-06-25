@@ -10,11 +10,11 @@ $handler_namespace = $generator->getNamespace() . '\handlers\\' . $generator->ge
 $param_name = Inflector::camel2id($generator->getModelClassName(), '_');
 echo "<?php\n";
 ?>
-namespace <?= $handler_namespace . '/' . Generator::PATH_ACTIONS . ';'; ?>
+namespace <?= $handler_namespace . '\\' . Generator::PATH_ACTIONS . ";\n"; ?>
 
 /**
  * Class Update
- * @package <?= $handler_namespace . '/' . Generator::PATH_ACTIONS; ?>
+ * @package <?= $handler_namespace . '\\' . Generator::PATH_ACTIONS . "\n"; ?>
  */
 class Update extends AbstractAction
 {
