@@ -939,9 +939,9 @@ class Generator extends \yii\gii\Generator
         if (mb_strpos($this->ns, 'common\components\\') === 0){
             $right = mb_substr($this->ns, mb_strlen('common\components\\'));
             $component_name = mb_substr($right, 0, mb_strpos($right, '\\'));
-            return 'common\components\\' . $component_name . '\\';
+            return 'common\components\\' . $component_name . '\\forms\\';
         }
-        return $this->ns . '\\';
+        return $this->ns . '\\forms\\';
     }
 
     /**
