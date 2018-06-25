@@ -33,7 +33,6 @@ class Post extends PostAR
     public function getFromForm()
     {
         if (!is_null($this->form)){
-            $this->id = $this->form->id;
             $this->ticker = $this->form->ticker;
             $this->name = $this->form->name;
             $this->type_id = $this->form->type_id;
