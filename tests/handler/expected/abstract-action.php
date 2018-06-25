@@ -1,12 +1,12 @@
 <?php
-namespace tests\runtime\data\handler\Post\actions;
+namespace tests\runtime\data\handlers\Post\actions;
 
-use tests\runtime\data\handler\Post\interfaces\ActionExecutable;
+use tests\runtime\data\handlers\Post\interfaces\ActionExecutable;
 use ma3obblu\gii\generators\tests\handler\Post;
 
 /**
  * Class AbstractAction
- * @package tests\runtime\data\handler\Post\actions
+ * @package tests\runtime\data\handlers\Post\actions
  *
  * @property Post $post
  */

@@ -6,7 +6,7 @@ use ma3obblu\gii\generators\handler\Generator;
 /** @var $this View */
 /** @var $generator Generator */
 
-$handler_namespace = $generator->getNamespace() . '\handler\\' . $generator->getModelClassName();
+$handler_namespace = $generator->getNamespace() . '\handlers\\' . $generator->getModelClassName();
 $param_name = Inflector::camel2id($generator->getModelClassName(), '_');
 echo "<?php\n";
 ?>

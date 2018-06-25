@@ -196,7 +196,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getHandlerFilePath() : string
     {
-        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handler/' . $this->getModelClassName() . '/' . $this->handlerClass . '.php';
+        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handlers/' . $this->getModelClassName() . '/' . $this->handlerClass . '.php';
     }
 
     /**
@@ -205,7 +205,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getInterfacesPath(string $filename) : string
     {
-        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handler/' . $this->getModelClassName() . '/' . self::PATH_INTERFACES . '/' . $filename . '.php';
+        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handlers/' . $this->getModelClassName() . '/' . self::PATH_INTERFACES . '/' . $filename . '.php';
     }
 
     /**
@@ -214,7 +214,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getActionsPath(string $filename) : string
     {
-        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handler/' . $this->getModelClassName() . '/' . self::PATH_ACTIONS . '/' . $filename . '.php';
+        return \Yii::getAlias(str_replace('\\', '/', $this->componentUrl)) . '/handlers/' . $this->getModelClassName() . '/' . self::PATH_ACTIONS . '/' . $filename . '.php';
     }
 
     /**

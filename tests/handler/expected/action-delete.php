@@ -1,9 +1,9 @@
 <?php
-namespace tests\runtime\data\handler\Post\actions;
+namespace tests\runtime\data\handlers\Post\actions;
 
 /**
  * Class Delete
- * @package tests\runtime\data\handler\Post\actions
+ * @package tests\runtime\data\handlers\Post\actions
  */
 class Delete extends AbstractAction
 {

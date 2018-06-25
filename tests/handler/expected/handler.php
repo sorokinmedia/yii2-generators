@@ -1,7 +1,7 @@
 <?php
-namespace tests\runtime\data\handler\Post;
+namespace tests\runtime\data\handlers\Post;
 
-use tests\runtime\data\handler\Post\interfaces\{
+use tests\runtime\data\handlers\Post\interfaces\{
     Create, Update, Delete
 };
 use ma3obblu\gii\generators\tests\handler\Post;
