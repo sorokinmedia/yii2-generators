@@ -50,6 +50,7 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
         }
     }
 
+<?php if ($generator->needInsertModel === true) { ?>
     /**
      * добавление модели в БД
      * @return bool
@@ -64,7 +65,9 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
         }
         return true;
     }
+<?php } ?>
 
+<?php if ($generator->needUpdateModel === true) { ?>
     /**
      * обновление модели в БД
      * @return bool
@@ -80,7 +83,9 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
         }
         return true;
     }
+<?php } ?>
 
+<?php if ($generator->needDeleteModel === true) { ?>
     /**
      * удаление модели из БД
      * @return bool
@@ -96,3 +101,4 @@ class <?= $className ?> extends <?= $classARName . "\n" ?>
         return true;
     }
 }
+<?php } ?>

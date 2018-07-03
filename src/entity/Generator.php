@@ -33,6 +33,9 @@ use yii\helpers\VarDumper;
  * @property string $queryBaseClass
  * @property boolean $enableI18N
  * @property boolean $needId
+ * @property boolean $needInsertModel
+ * @property boolean $needUpdateModel
+ * @property boolean $needDeleteModel
  */
 class Generator extends \yii\gii\Generator
 {
@@ -56,6 +59,9 @@ class Generator extends \yii\gii\Generator
     public $queryBaseClass = 'yii\db\ActiveQuery';
     public $enableI18N = true;
     public $needId = false;
+    public $needInsertModel = true;
+    public $needUpdateModel = true;
+    public $needDeleteModel = true;
 
 
     /**
@@ -95,7 +101,7 @@ class Generator extends \yii\gii\Generator
             [['queryBaseClass'], 'validateClass', 'params' => ['extends' => ActiveQuery::class]],
             [['generateRelations'], 'in', 'range' => [self::RELATIONS_NONE, self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
             [['generateLabelsFromComments', 'useTablePrefix', 'useSchemaName', 'generateQuery', 'generateRelationsFromCurrentSchema'], 'boolean'],
-            [['enableI18N', 'needId'], 'boolean'],
+            [['enableI18N', 'needId', 'needInsertModel', 'needUpdateModel', 'needDeleteModel'], 'boolean'],
             [['messageCategory'], 'validateMessageCategory', 'skipOnEmpty' => false],
         ]);
     }
@@ -119,7 +125,10 @@ class Generator extends \yii\gii\Generator
             'queryClass' => 'ActiveQuery Class',
             'queryBaseClass' => 'ActiveQuery Base Class',
             'useSchemaName' => 'Use Schema Name',
-            'needId' => 'Need ID attribute in getFromForm function'
+            'needId' => 'Need ID attribute in getFromForm function',
+            'needInsertModel' => 'Need insert model method',
+            'needUpdateModel' => 'Need update model method',
+            'needDeleteModel' => 'Need delete model method',
         ]);
     }
 

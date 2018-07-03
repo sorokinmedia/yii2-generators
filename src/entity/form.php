@@ -28,3 +28,6 @@ echo $form->field($generator, 'enableI18N')->checkbox();
 echo $form->field($generator, 'messageCategory');
 echo $form->field($generator, 'useSchemaName')->checkbox();
 echo $form->field($generator, 'needId')->checkbox();
+echo $form->field($generator, 'needInsertModel')->checkbox();
+echo $form->field($generator, 'needUpdateModel')->checkbox();
+echo $form->field($generator, 'needDeleteModel')->checkbox();
