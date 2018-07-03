@@ -1,7 +1,7 @@
 <?php
 namespace tests\runtime;
 
-use tests\runtime\PostForm;
+use tests\runtime\forms\PostForm;
 use yii\db\Exception;
 
 /**

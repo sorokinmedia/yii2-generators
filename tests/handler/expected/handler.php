@@ -8,7 +8,9 @@ use ma3obblu\gii\generators\tests\handler\Post;
 
 /**
  * Class PostHandler
- * @package tests\runtime\data\handler\Post
+ * @package tests\runtime\data\handlers\Post
+ *
+ * @property Post $post
  */
 class PostHandler implements Create, Update, Delete
 {
