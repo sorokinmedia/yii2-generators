@@ -40,6 +40,7 @@ class <?= $generator->handlerClass; ?> implements <?= ($generator->needCreate ==
 <?php if ($generator->needCreate == true) { ?>
     /**
      * @return bool
+     * @throws \Throwable
      */
     public function create() : bool
     {
@@ -60,6 +61,8 @@ class <?= $generator->handlerClass; ?> implements <?= ($generator->needCreate ==
 <?php if ($generator->needDelete == true) { ?>
     /**
      * @return bool
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function delete() : bool
     {

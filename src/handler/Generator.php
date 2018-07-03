@@ -150,34 +150,46 @@ class Generator extends \yii\gii\Generator
             $this->getInterfacesPath('ActionExecutable'),
             $this->render('action-executable.php')
         );
-        $files[] = new CodeFile(
-            $this->getInterfacesPath('Create'),
-            $this->render('interface-create.php')
-        );
-        $files[] = new CodeFile(
-            $this->getInterfacesPath('Update'),
-            $this->render('interface-update.php')
-        );
-        $files[] = new CodeFile(
-            $this->getInterfacesPath('Delete'),
-            $this->render('interface-delete.php')
-        );
+        if ($this->needCreate === true) {
+            $files[] = new CodeFile(
+                $this->getInterfacesPath('Create'),
+                $this->render('interface-create.php')
+            );
+        }
+        if ($this->needUpdate === true) {
+            $files[] = new CodeFile(
+                $this->getInterfacesPath('Update'),
+                $this->render('interface-update.php')
+            );
+        }
+        if ($this->needDelete === true) {
+            $files[] = new CodeFile(
+                $this->getInterfacesPath('Delete'),
+                $this->render('interface-delete.php')
+            );
+        }
         $files[] = new CodeFile(
             $this->getActionsPath('AbstractAction'),
             $this->render('abstract-action.php')
         );
-        $files[] = new CodeFile(
-            $this->getActionsPath('Create'),
-            $this->render('action-create.php')
-        );
-        $files[] = new CodeFile(
-            $this->getActionsPath('Update'),
-            $this->render('action-update.php')
-        );
-        $files[] = new CodeFile(
-            $this->getActionsPath('Delete'),
-            $this->render('action-delete.php')
-        );
+        if ($this->needCreate === true) {
+            $files[] = new CodeFile(
+                $this->getActionsPath('Create'),
+                $this->render('action-create.php')
+            );
+        }
+        if ($this->needUpdate === true){
+            $files[] = new CodeFile(
+                $this->getActionsPath('Update'),
+                $this->render('action-update.php')
+            );
+        }
+        if ($this->needDelete === true){
+            $files[] = new CodeFile(
+                $this->getActionsPath('Delete'),
+                $this->render('action-delete.php')
+            );
+        }
         return $files;
     }
 

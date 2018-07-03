@@ -28,6 +28,7 @@ class PostHandler implements Create, Update, Delete
 
     /**
      * @return bool
+     * @throws \Throwable
      */
     public function create() : bool
     {
@@ -44,6 +45,8 @@ class PostHandler implements Create, Update, Delete
 
     /**
      * @return bool
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function delete() : bool
     {

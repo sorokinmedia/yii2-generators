@@ -9,6 +9,8 @@ class Delete extends AbstractAction
 {
     /**
      * @return bool
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function execute() : bool
     {

@@ -9,6 +9,7 @@ class Create extends AbstractAction
 {
     /**
      * @return bool
+     * @throws \Throwable
      */
     public function execute() : bool
     {
