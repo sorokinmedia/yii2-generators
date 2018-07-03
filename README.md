@@ -24,8 +24,17 @@ Add new generator into your Gii module config:
 $config['modules']['gii'] = [
     'class' => 'yii\gii\Module',
     'generators' => [
+        'crud' => [
+            'class' => 'ma3obblu\gii\generators\crud\Generator',
+        ],
+        'entity' => [
+            'class' => 'ma3obblu\gii\generators\entity\Generator',
+        ],
         'form' => [
             'class' => 'ma3obblu\gii\generators\form\Generator',
+        ],
+        'handler' => [
+            'class' => 'ma3obblu\gii\generators\handler\Generator',
         ],
     ],
 ];
