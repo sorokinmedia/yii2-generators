@@ -28,11 +28,13 @@
             "ma3obblu\\gii\\generators\\entity\\": "src/entity/",
             "ma3obblu\\gii\\generators\\handler\\": "src/handler/",
             "ma3obblu\\gii\\generators\\crud\\": "src/crud/",
+            "ma3obblu\\gii\\generators\\fixture\\": "src/fixture/",
             "ma3obblu\\gii\\generators\\tests\\": "tests/",
             "ma3obblu\\gii\\generators\\tests\\form\\": "tests/form/",
             "ma3obblu\\gii\\generators\\tests\\entity\\": "tests/entity/",
             "ma3obblu\\gii\\generators\\tests\\handler\\": "tests/handler/",
             "ma3obblu\\gii\\generators\\tests\\crud\\": "tests/crud/",
+            "ma3obblu\\gii\\generators\\tests\\fixture\\": "tests/fixture/",
             "ma3obblu\\gii\\generators\\helpers\\": "src/helpers/"
         }
     },
