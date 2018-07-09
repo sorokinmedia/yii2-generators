@@ -76,9 +76,38 @@ class HandlerGeneratorTest extends TestCase
         $this->assertStringEqualsFile(__DIR__ . '/expected/interface-delete.php', $files[4]->content);
         $this->assertStringEqualsFile(__DIR__ . '/expected/abstract-action.php', $files[5]->content);
         $this->assertStringEqualsFile(__DIR__ . '/expected/action-create.php', $files[6]->content);
-        /*$this->assertStringEqualsFile(__DIR__ . '/expected/action-update.php', $files[7]->content);
-        $this->assertStringEqualsFile(__DIR__ . '/expected/action-delete.php', $files[8]->content);*/
+        $this->assertStringEqualsFile(__DIR__ . '/expected/action-update.php', $files[7]->content);
+        $this->assertStringEqualsFile(__DIR__ . '/expected/action-delete.php', $files[8]->content);
+    }
 
+    /**
+     * тест генерации файла без create/delete interfaces/actions
+     */
+    public function testGenerateFileWithoutCreateDelete()
+    {
+        $this->initDb();
+
+        $generator = new HandlerGenerator();
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->componentUrl = '@tests/runtime/data';
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\handler\Post';
+        $generator->handlerClass = 'PostHandler';
+        $generator->componentUrl = '@tests/runtime/data';
+        $generator->needCreate = false;
+        $generator->needUpdate = true;
+        $generator->needDelete = false;
+
+        /** @var CodeFile[] $files */
+        $this->assertCount(5, $files = $generator->generate());
+        $this->assertStringEqualsFile(__DIR__ . '/expected/handler-without.php', $files[0]->content);
+        $this->assertStringEqualsFile(__DIR__ . '/expected/action-executable.php', $files[1]->content);
+        //$this->assertStringEqualsFile(__DIR__ . '/expected/interface-create.php', $files[2]->content);
+        $this->assertStringEqualsFile(__DIR__ . '/expected/interface-update.php', $files[2]->content);
+        //$this->assertStringEqualsFile(__DIR__ . '/expected/interface-delete.php', $files[4]->content);
+        $this->assertStringEqualsFile(__DIR__ . '/expected/abstract-action.php', $files[3]->content);
+        //$this->assertStringEqualsFile(__DIR__ . '/expected/action-create.php', $files[6]->content);
+        $this->assertStringEqualsFile(__DIR__ . '/expected/action-update.php', $files[4]->content);
+        //$this->assertStringEqualsFile(__DIR__ . '/expected/action-delete.php', $files[8]->content);
     }
 
     /**
