@@ -205,7 +205,7 @@ class Generator extends \yii\gii\Generator
     {
         return [
             'id' => Inflector::camel2id($this->getModelClassName()),
-            'link' => $this->dataPath . '\\' . $this->getDataFileName(),
+            'link' => $this->dataPath . '/' . $this->getDataFileName(),
         ];
     }
 
@@ -225,7 +225,7 @@ class Generator extends \yii\gii\Generator
             $name = GeneratorHelper::generateFixtureRelationName($relation);
             $items[] = [
                 'id' => $name,
-                'link' => $this->dataPath . '\\' . $name . '.php',
+                'link' => $this->dataPath . '/' . $name . '.php',
             ];
         }
         return $items;
