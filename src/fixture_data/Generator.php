@@ -80,8 +80,8 @@ class Generator extends \yii\gii\Generator
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['modelClass', 'dataPath', 'pkFirstName', 'pkSecondName', 'pkFirstValue', 'pkSecondValue'], 'filter', 'filter' => 'trim'],
-            [['modelClass', 'dataPath', 'pkFirstName', 'pkFirstValue'], 'required'],
+            [['modelClass', 'dataPath', 'pkFirstName', 'pkSecondName', 'pkFirstValue', 'pkSecondValue', 'relations'], 'filter', 'filter' => 'trim'],
+            [['modelClass', 'dataPath', 'pkFirstName', 'pkFirstValue', 'relations'], 'required'],
             [['pkFirstName', 'pkSecondName'], 'match', 'pattern' => '/^[\w\\_]*$/', 'message' => 'Only word characters and underscores are allowed.'],
             [['modelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
             [['dataFile'], 'match', 'pattern' => '/^\w+\.php$/', 'message' => 'Only php files are allowed.'],
@@ -135,7 +135,7 @@ class Generator extends \yii\gii\Generator
             'pkFirstValue' => 'Primary key first field value, e.g. "12"',
             'pkSecondName' => 'Primary key second field name, e.g. "user_id"',
             'pkSecondValue' => 'Primary key second field value, e.g. "12"',
-            'relations' => 'Relations you need for main Model. Each relation from new line. E.g., "user", "user->bill"',
+            'relations' => 'Relations you need for main Model. Each relation delimited by comma. E.g., "user,user->bill"',
             'dataFile' => 'This is the name for the generated fixture data file, e.g., <code>post.php</code>.',
             'dataPath' => 'This is the root path to keep the generated fixture data files. You may provide either a directory or a path alias, e.g., <code>@tests/fixtures/data</code>.',
         ]);
@@ -202,7 +202,7 @@ EOD;
     public function getRelationsDataFileNames() : array
     {
         /** @var ActiveRecord $modelClass */
-        $relations = explode("\r\n", trim($this->relations));
+        $relations = explode(",", trim($this->relations));
         $items = [];
         if (empty($relations)){
             return $items;
@@ -261,7 +261,7 @@ EOD;
         /** @var ActiveRecord $modelClass */
         $modelClass = $this->modelClass;
         $item = $modelClass::find()->where([$this->pkFirstName => $this->pkFirstValue])->one();
-        $relations = explode("\r\n", trim($this->relations));
+        $relations = explode(",", trim($this->relations));
         if (empty($relations)){
             return $items;
         }

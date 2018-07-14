@@ -39,6 +39,7 @@ class FixtureDataGeneratorTest extends TestCase
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;
+        $generator->relations = 'user';
 
 
         $this->assertTrue($generator->validate(), 'Validation failed: ' . print_r($generator->getErrors(), true));
@@ -52,6 +53,8 @@ class FixtureDataGeneratorTest extends TestCase
         $generator = new FixtureExtraGenerator();
         $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
         $generator->dataPath = '@tests/runtime/data';
+        $generator->pkFirstValue = 1;
+        $generator->relations = 'user';
 
         $this->assertEquals('post.php', $generator->getDataFileName());
     }
@@ -65,6 +68,8 @@ class FixtureDataGeneratorTest extends TestCase
         $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
         $generator->dataFile = 'post-custom.php';
         $generator->dataPath = '@tests/runtime/data';
+        $generator->pkFirstValue = 1;
+        $generator->relations = 'user';
 
         $this->assertEquals('post-custom.php', $generator->getDataFileName());
     }
@@ -82,7 +87,7 @@ class FixtureDataGeneratorTest extends TestCase
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;
-        $generator->relations = "user\r\nuser->bill";
+        $generator->relations = "user,user->bill";
 
         /** @var CodeFile[] $files */
         $this->assertCount(3, $files = $generator->generate());
@@ -106,7 +111,7 @@ class FixtureDataGeneratorTest extends TestCase
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;
-        $generator->relations = "posts\r\nbill";
+        $generator->relations = "posts,bill";
 
         /** @var CodeFile[] $files */
         $this->assertCount(3, $files = $generator->generate());
