@@ -1,7 +1,7 @@
 <?php
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
-use ma3obblu\gii\generators\fixture\Generator;
+use ma3obblu\gii\generators\fixture_class\Generator;
 
 /* @var $this View */
 /* @var $form ActiveForm */
@@ -12,4 +12,3 @@ echo $form->field($generator, 'fixtureClass');
 echo $form->field($generator, 'fixtureNs');
 echo $form->field($generator, 'dataFile');
 echo $form->field($generator, 'dataPath');
-echo $form->field($generator, 'grabData')->checkbox();

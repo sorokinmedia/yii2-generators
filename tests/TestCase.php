@@ -5,7 +5,7 @@ use yii\console\Application;
 
 /**
  * Class TestCase
- * @package Ma3oBblu\gii\fixture\tests
+ * @package Ma3oBblu\gii\generators\tests
  */
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {

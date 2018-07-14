@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\fixture;
+namespace ma3obblu\gii\generators\fixture_class;
 
 use yii\db\ActiveRecord;
 use yii\gii\CodeFile;
@@ -13,7 +13,6 @@ use yii\gii\CodeFile;
  * @property string $fixtureNs
  * @property string $dataFile
  * @property string $dataPath
- * @property boolean $grabData
  */
 class Generator extends \yii\gii\Generator
 {
@@ -22,14 +21,13 @@ class Generator extends \yii\gii\Generator
     public $fixtureNs = 'tests\fixtures';
     public $dataFile;
     public $dataPath = '@tests/fixtures/data';
-    public $grabData = false;
 
     /**
      * @inheritdoc
      */
     public function getName()
     {
-        return 'Fixture Generator And Data Grabber';
+        return 'Fixture Class Generator';
     }
 
     /**
@@ -37,25 +35,25 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generator generates fixture class for existing model class with relations and prepares fixture data files.';
+        return 'This generator generates fixture class for existing model class with data mockup file.';
     }
 
     /**
-     * @inheritdoc
+     * генерация файлов
      */
     public function generate()
     {
         $files = [];
+        // генерация файла класса фикстуры
         $files[] = new CodeFile(
             \Yii::getAlias('@' . str_replace('\\', '/', $this->fixtureNs)) . '/' . $this->getFixtureClassName() . '.php',
             $this->render('class.php')
         );
-
+        // генерация файла с заглушкой под дату фикстуры
         $files[] = new CodeFile(
             \Yii::getAlias($this->dataPath) . '/' . $this->getDataFileName(),
             $this->render('data.php', ['items' => $this->getFixtureData()])
         );
-
         return $files;
     }
 
@@ -73,7 +71,6 @@ class Generator extends \yii\gii\Generator
             [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['dataPath'], 'match', 'pattern' => '/^@?\w+[\\-\\/\w]*$/', 'message' => 'Only word characters, dashes, slashes and @ are allowed.'],
             [['dataPath'], 'validatePath'],
-            [['grabData'], 'boolean'],
         ]);
     }
 
@@ -88,7 +85,6 @@ class Generator extends \yii\gii\Generator
             'fixtureNs' => 'Fixture Class Namespace',
             'dataFile' => 'Fixture Data File',
             'dataPath' => 'Fixture Data Path',
-            'grabData' => 'Grab Existing DB Data',
         ]);
     }
 
@@ -119,40 +115,21 @@ class Generator extends \yii\gii\Generator
             'fixtureNs' => 'This is the namespace for fixture class file, e.g., <code>tests\fixtures</code>.',
             'dataFile' => 'This is the name for the generated fixture data file, e.g., <code>post.php</code>.',
             'dataPath' => 'This is the root path to keep the generated fixture data files. You may provide either a directory or a path alias, e.g., <code>@tests/fixtures/data</code>.',
-            'grabData' => 'If checked, the existed data from database will be grabbed into data file.',
         ]);
     }
 
     /**
-     * @inheritdoc
+     * сообщение об успешной генерации
+     * @return string
      */
-    public function successMessage()
+    public function successMessage() : string
     {
-        $output = <<<EOD
-<p>The fixture has been generated successfully.</p>
-<p>To access the data, you need to add this to your test class:</p>
-EOD;
-        $id = $this->getFixtureId();
-        $class = $this->fixtureNs . '\\' . $this->getFixtureClassName();
-        $file = $this->dataPath . '/' . $this->getDataFileName();
-        $code = <<<EOD
-<?php
-
-public function fixtures()
-{
-    return [
-        '{$id}' => [
-            'class' => \\{$class}::class,
-            'dataFile' => '{$file}',
-        ],
-    ];
-}
-EOD;
-
-        return $output . '<pre>' . highlight_string($code, true) . '</pre>';
+        $output = "<p>The fixture has been generated successfully.</p>";
+        return $output;
     }
 
     /**
+     * валидации пути на существование
      * @param string $attribute
      */
     public function validatePath(string $attribute)
@@ -164,6 +141,7 @@ EOD;
     }
 
     /**
+     * название файла для заглушки данных
      * @return string
      */
     public function getDataFileName() : string
@@ -176,6 +154,7 @@ EOD;
     }
 
     /**
+     * название класса фикстуры
      * @return string
      */
     public function getFixtureClassName() : string
@@ -188,6 +167,7 @@ EOD;
     }
 
     /**
+     * название исходной модели
      * @return string
      */
     public function getModelClassName() : string
@@ -196,44 +176,19 @@ EOD;
     }
 
     /**
-     * @return string
-     */
-    public function getFixtureId() : string
-    {
-        return strtolower(pathinfo(str_replace('\\', '/', $this->modelClass), PATHINFO_BASENAME));
-    }
-
-    /**
+     * генерации заглушки данных
      * @return array
      */
-    protected function getFixtureData()
+    protected function getFixtureData() : array
     {
         /** @var \yii\db\ActiveRecord $modelClass */
         $modelClass = $this->modelClass;
         $items = [];
-        if ($this->grabData) {
-            $orderBy = array_combine($modelClass::primaryKey(), array_fill(0, count($modelClass::primaryKey()), SORT_ASC));
-            foreach ($modelClass::find()->orderBy($orderBy)->asArray()->each() as $row) {
-                $item = [];
-                foreach ($row as $name => $value) {
-                    if (is_null($value)) {
-                        $encValue = 'null';
-                    } elseif (preg_match('/^(0|[1-9-]\d*)$/s', $value)) {
-                        $encValue = $value;
-                    } else {
-                        $encValue = var_export($value, true);;
-                    }
-                    $item[$name] = $encValue;
-                }
-                $items[] = $item;
-            }
-        } else {
-            $item = [];
-            foreach ($modelClass::getTableSchema()->columns as $column) {
-                $item[$column->name] = $column->allowNull ? 'null' : '\'\'';
-            }
-            $items[] = $item;
+        $item = [];
+        foreach ($modelClass::getTableSchema()->columns as $column) {
+            $item[$column->name] = $column->allowNull ? 'null' : '\'\'';
         }
+        $items[] = $item;
         return $items;
     }
 }

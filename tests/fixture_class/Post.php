@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture;
+namespace ma3obblu\gii\generators\tests\fixture_class;
 
 use yii\db\ActiveRecord;
 

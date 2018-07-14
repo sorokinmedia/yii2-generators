@@ -1,17 +1,17 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture;
+namespace ma3obblu\gii\generators\tests\fixture_class;
 
-use ma3obblu\gii\generators\fixture\Generator as FixtureGenerator;
+use ma3obblu\gii\generators\fixture_class\Generator as FixtureGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
 use Ma3oBblu\gii\generators\tests\TestCase;
 
 /**
- * Class FixtureGeneratorTest
- * @package ma3obblu\gii\generators\tests\fixture
+ * Class FixtureClassGeneratorTest
+ * @package ma3obblu\gii\generators\tests\fixture_class
  */
-class FixtureGeneratorTest extends TestCase
+class FixtureClassGeneratorTest extends TestCase
 {
     /**
      *
@@ -22,7 +22,6 @@ class FixtureGeneratorTest extends TestCase
         $generator->modelClass = 'tests\Fake';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/fake';
-        $generator->grabData = true;
 
         $this->assertFalse($generator->validate());
         $this->assertEquals($generator->getFirstError('dataPath'), 'Path does not exist.');
@@ -35,10 +34,9 @@ class FixtureGeneratorTest extends TestCase
     public function testValidateCorrect()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture\Post';
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
-        $generator->grabData = true;
 
         $this->assertTrue($generator->validate(), 'Validation failed: ' . print_r($generator->getErrors(), true));
     }
@@ -49,10 +47,9 @@ class FixtureGeneratorTest extends TestCase
     public function testDefaultNames()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture\Post';
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
-        $generator->grabData = false;
 
         $this->assertEquals('PostFixture', $generator->getFixtureClassName());
         $this->assertEquals('post.php', $generator->getDataFileName());
@@ -64,12 +61,11 @@ class FixtureGeneratorTest extends TestCase
     public function testSpecificNames()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture\Post';
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
         $generator->fixtureClass = 'PostCustomFixture';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataFile = 'post-custom.php';
         $generator->dataPath = '@tests/runtime/data';
-        $generator->grabData = false;
 
         $this->assertEquals('PostCustomFixture', $generator->getFixtureClassName());
         $this->assertEquals('post-custom.php', $generator->getDataFileName());
@@ -83,34 +79,14 @@ class FixtureGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture\Post';
+        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
-        $generator->grabData = false;
 
         /** @var CodeFile[] $files */
         $this->assertCount(2, $files = $generator->generate());
         $this->assertStringEqualsFile(__DIR__ . '/expected/class.php', $files[0]->content);
         $this->assertStringEqualsFile(__DIR__ . '/expected/data-empty.php', $files[1]->content);
-    }
-
-    /**
-     *
-     */
-    public function testGenerateWithData()
-    {
-        $this->initDb();
-
-        $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture\Post';
-        $generator->fixtureNs = 'tests\runtime';
-        $generator->dataPath = '@tests/runtime/data';
-        $generator->grabData = true;
-
-        /** @var CodeFile[] $files */
-        $this->assertCount(2, $files = $generator->generate());
-        $this->assertStringEqualsFile(__DIR__ . '/expected/class.php', $files[0]->content);
-        $this->assertStringEqualsFile(__DIR__ . '/expected/data-full.php', $files[1]->content);
     }
 
     /**

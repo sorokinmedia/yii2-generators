@@ -231,4 +231,43 @@ class GeneratorHelper
         }
         return $result;
     }
+
+    /**
+     * массив в строку (для фикстур)
+     * @param array $array
+     * @return string
+     */
+    public static function array2string(array $array) : string
+    {
+        $log_a = "    [\n";
+        foreach ($array as $key => $value) {
+            if(is_array($value)) {
+                $log_a .= "        '".$key."' => [". self::array2string($value). "], \n";
+            } elseif (is_null($value)){
+                $log_a .= "        '".$key."' => null,\n";
+            } elseif ($value === ''){
+                $log_a .= "        '".$key."' => '',\n";
+            } elseif (preg_match('^[а-яА-ЯёЁ]+$^', $value)
+                || preg_match('/[^A-Za-z0-9]/', $value)
+                || preg_match('/[A-Za-z]/', $value)){
+                $log_a .= "        '".$key."' => '$value',\n";
+            } else{
+                $log_a .= "        '".$key."' => ".$value.",\n";
+            }
+        }
+        return $log_a . "    ],\n";
+    }
+
+    /**
+     * генерирует название из заданной реляции для фикстур
+     * @param string $relation
+     * @return string
+     */
+    public static function generateFixtureRelationName(string $relation) : string
+    {
+        if (strripos($relation, '->')){
+            return Inflector::camel2id(mb_substr($relation, strripos($relation, '->') + 2));
+        }
+        return Inflector::camel2id($relation);
+    }
 }
