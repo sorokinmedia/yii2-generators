@@ -124,7 +124,7 @@ class FixtureDataGeneratorTest extends TestCase
     }
 
     /**
-     *
+     * инициализация БД для тестов
      */
     private function initDb()
     {

@@ -5,6 +5,7 @@ use ma3obblu\gii\generators\helpers\GeneratorHelper;
 use yii\db\ActiveRecord;
 use yii\db\Exception;
 use yii\gii\CodeFile;
+use yii\helpers\Inflector;
 
 /**
  * Class Generator
@@ -150,22 +151,33 @@ class Generator extends \yii\gii\Generator
         $output = <<<EOD
 <p>To access the data, you need to add this to your test class:</p>
 EOD;
+        $main_file = $this->getMainDataFileName();
         $files = $this->getRelationsDataFileNames();
-        $code = '';
-        foreach ($files as $file){
-            $code .= <<<EOD
+        $code = <<<EOD
 <?php
-
 public function fixtures()
 {
     return [
+EOD;
+        $code .= <<<EOD
+        '{$main_file['id']}' => [
+            'class' => //TODO: add fixture class,
+            'dataFile' => '{$main_file['link']}',
+        ],
+EOD;
+
+        foreach ($files as $file){
+            $code .= <<<EOD
         '{$file['id']}' => [
             'class' => //TODO: add fixture class,
             'dataFile' => '{$file['link']}',
         ],
+EOD;
+        $code .= <<<EOD
     ];
 }
 EOD;
+
         }
         return $output . '<pre>' . highlight_string($code, true) . '</pre>';
     }
@@ -196,6 +208,18 @@ EOD;
     }
 
     /**
+     * генерит название файла с данными для основной модели
+     * @return array
+     */
+    public function getMainDataFileName() : array
+    {
+        return [
+            'id' => Inflector::camel2id($this->getModelClassName()),
+            'link' => $this->dataPath . '\\' . $this->getDataFileName(),
+        ];
+    }
+
+    /**
      * генерит названия файлов с данными для связей
      * @return array
      */
@@ -211,7 +235,7 @@ EOD;
             $name = GeneratorHelper::generateFixtureRelationName($relation);
             $items[] = [
                 'id' => $name,
-                'link' => \Yii::getAlias($this->dataPath) . '/' . $name . '.php',
+                'link' => $this->dataPath . '\\' . $name . '.php',
             ];
         }
         return $items;
