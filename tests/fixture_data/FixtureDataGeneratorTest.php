@@ -5,7 +5,7 @@ use ma3obblu\gii\generators\fixture_data\Generator as FixtureExtraGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
-use Ma3oBblu\gii\generators\tests\TestCase;
+use ma3obblu\gii\generators\tests\TestCase;
 
 /**
  * Class FixtureDataGeneratorTest

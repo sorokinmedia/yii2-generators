@@ -5,7 +5,7 @@ use yii\web\AssetBundle;
 
 /**
  * Class GeneratorAsset
- * @package ma3oBblu\gii\generators\form
+ * @package ma3obblu\gii\generators\form
  */
 class GeneratorAsset extends AssetBundle
 {

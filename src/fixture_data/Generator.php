@@ -1,7 +1,7 @@
 <?php
 namespace ma3obblu\gii\generators\fixture_data;
 
-use ma3oBblu\gii\generators\helpers\GeneratorHelper;
+use ma3obblu\gii\generators\helpers\GeneratorHelper;
 use yii\db\ActiveRecord;
 use yii\db\Exception;
 use yii\gii\CodeFile;
@@ -254,11 +254,14 @@ EOD;
      */
     protected function getRelationsFixtureData() : array
     {
+        $items = [];
+        if ($this->relations == ''){
+            return $items;
+        }
         /** @var ActiveRecord $modelClass */
         $modelClass = $this->modelClass;
         $item = $modelClass::find()->where([$this->pkFirstName => $this->pkFirstValue])->one();
         $relations = explode("\r\n", trim($this->relations));
-        $items = [];
         if (empty($relations)){
             return $items;
         }

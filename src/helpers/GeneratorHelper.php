@@ -1,12 +1,12 @@
 <?php
-namespace ma3oBblu\gii\generators\helpers;
+namespace ma3obblu\gii\generators\helpers;
 
 use yii\base\Model;
 use yii\helpers\Inflector;
 
 /**
  * Class GeneratorHelper
- * @package Ma3oBblu\gii\helpers
+ * @package ma3obblu\gii\generators\helpers
  *
  * различные генераторы данных
  */

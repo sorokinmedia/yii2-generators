@@ -1,11 +1,11 @@
 <?php
-namespace Ma3oBblu\gii\generators\tests;
+namespace ma3obblu\gii\generators\tests;
 
 use yii\console\Application;
 
 /**
  * Class TestCase
- * @package Ma3oBblu\gii\generators\tests
+ * @package ma3obblu\gii\generators\tests
  */
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
