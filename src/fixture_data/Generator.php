@@ -148,37 +148,27 @@ class Generator extends \yii\gii\Generator
      */
     public function successMessage()
     {
-        $output = <<<EOD
-<p>To access the data, you need to add this to your test class:</p>
-EOD;
+        $output = "<p>To access the data, you need to add this to your test class:</p>";
         $main_file = $this->getMainDataFileName();
         $files = $this->getRelationsDataFileNames();
-        $code = <<<EOD
-<?php
-public function fixtures()
-{
-    return [
-EOD;
-        $code .= <<<EOD
-        '{$main_file['id']}' => [
-            'class' => //TODO: add fixture class,
-            'dataFile' => '{$main_file['link']}',
-        ],
-EOD;
-
+        $code = "<?php\n";
+        $code .= "public function fixtures()\n";
+        $code .= "{\n";
+        $code .=
+"    return [\n" .
+"        '{$main_file['id']}' => [\n" .
+"             'class' => //TODO: add fixture class,\n" .
+"             'dataFile' => '{$main_file['link']}',\n" .
+"        ],\n";
         foreach ($files as $file){
-            $code .= <<<EOD
-        '{$file['id']}' => [
-            'class' => //TODO: add fixture class,
-            'dataFile' => '{$file['link']}',
-        ],
-EOD;
-        $code .= <<<EOD
-    ];
-}
-EOD;
-
+            $code .=
+"        '{$file['id']}' => [\n" .
+"              'class' => //TODO: add fixture class,\n" .
+"              'dataFile' => '{$file['link']}',\n" .
+"        ],\n";
         }
+        $code .= "    ];\n";
+        $code .= "}";
         return $output . '<pre>' . highlight_string($code, true) . '</pre>';
     }
 
