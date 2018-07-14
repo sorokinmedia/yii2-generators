@@ -83,7 +83,6 @@ class Generator extends \yii\gii\Generator
             [['modelClass', 'dataPath', 'pkFirstName', 'pkSecondName', 'pkFirstValue', 'pkSecondValue'], 'filter', 'filter' => 'trim'],
             [['modelClass', 'dataPath', 'pkFirstName', 'pkFirstValue'], 'required'],
             [['pkFirstName', 'pkSecondName'], 'match', 'pattern' => '/^[\w\\_]*$/', 'message' => 'Only word characters and underscores are allowed.'],
-            [['relations'], 'match', 'pattern' => '/^[\w\\-\\>]*$/', 'message' => 'Only word characters, dashed and gt symbols are allowed.'],
             [['modelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
             [['dataFile'], 'match', 'pattern' => '/^\w+\.php$/', 'message' => 'Only php files are allowed.'],
             [['modelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
