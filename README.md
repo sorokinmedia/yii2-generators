@@ -36,8 +36,11 @@ $config['modules']['gii'] = [
         'handler' => [
             'class' => 'ma3obblu\gii\generators\handler\Generator',
         ],
-        'fixture' => [
-            'class' => 'ma3obblu\gii\generators\fixture\Generator',
+        'fixture_class' => [
+            'class' => 'ma3obblu\gii\generators\fixture_class\Generator',
+        ],
+        'fixture_data' => [
+            'class' => 'ma3obblu\gii\generators\fixture_data\Generator',
         ]
     ],
 ];
