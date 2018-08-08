@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\crud;
+namespace sorokinmedia\gii\generators\crud;
 
 use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;

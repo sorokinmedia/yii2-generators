@@ -1,11 +1,11 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture_data;
+namespace sorokinmedia\gii\generators\tests\fixture_data;
 
 use yii\db\ActiveRecord;
 
 /**
  * Class Bill
- * @package ma3obblu\gii\generators\tests\fixture_data
+ * @package sorokinmedia\gii\generators\tests\fixture_data
  *
  * @property User $user
  */

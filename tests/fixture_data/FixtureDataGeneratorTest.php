@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture_data;
+namespace sorokinmedia\gii\generators\tests\fixture_data;
 
-use ma3obblu\gii\generators\fixture_data\Generator as FixtureExtraGenerator;
+use sorokinmedia\gii\generators\fixture_data\Generator as FixtureExtraGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
-use ma3obblu\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\tests\TestCase;
 
 /**
  * Class FixtureDataGeneratorTest
- * @package ma3obblu\gii\generators\tests\fixture_data
+ * @package sorokinmedia\gii\generators\tests\fixture_data
  */
 class FixtureDataGeneratorTest extends TestCase
 {
@@ -35,7 +35,7 @@ class FixtureDataGeneratorTest extends TestCase
     public function testValidateCorrect()
     {
         $generator = new FixtureExtraGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_data\Post';
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;
@@ -51,7 +51,7 @@ class FixtureDataGeneratorTest extends TestCase
     public function testDefaultNames()
     {
         $generator = new FixtureExtraGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_data\Post';
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstValue = 1;
         $generator->relations = 'user';
@@ -65,7 +65,7 @@ class FixtureDataGeneratorTest extends TestCase
     public function testSpecificNames()
     {
         $generator = new FixtureExtraGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_data\Post';
         $generator->dataFile = 'post-custom.php';
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstValue = 1;
@@ -83,7 +83,7 @@ class FixtureDataGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FixtureExtraGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_data\Post';
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;
@@ -107,7 +107,7 @@ class FixtureDataGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FixtureExtraGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_data\User';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_data\User';
         $generator->dataPath = '@tests/runtime/data';
         $generator->pkFirstName = 'id';
         $generator->pkFirstValue = 1;

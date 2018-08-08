@@ -1,11 +1,11 @@
 <?php
-namespace ma3obblu\gii\generators\tests\handler;
+namespace sorokinmedia\gii\generators\tests\handler;
 
 use yii\db\ActiveRecord;
 
 /**
  * Class Post
- * @package ma3obblu\gii\generators\tests\handler
+ * @package sorokinmedia\gii\generators\tests\handler
  *
  * @property int $id
  * @property string $ticker

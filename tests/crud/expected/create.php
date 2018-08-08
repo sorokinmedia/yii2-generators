@@ -1,6 +1,6 @@
 <?php
 use yii\web\View;
-use ma3obblu\gii\generators\tests\crud\Post;
+use sorokinmedia\gii\generators\tests\crud\Post;
 use tests\runtime\data\forms\PostForm;
 
 /** @var $this View */

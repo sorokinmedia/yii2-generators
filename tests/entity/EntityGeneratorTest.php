@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\entity;
+namespace sorokinmedia\gii\generators\tests\entity;
 
-use ma3obblu\gii\generators\tests\TestCase;
-use ma3obblu\gii\generators\entity\Generator as EntityGenerator;
+use sorokinmedia\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\entity\Generator as EntityGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
 
 /**
  * Class FormGeneratorTest
- * @package ma3obblu\gii\generators\tests\form
+ * @package sorokinmedia\gii\generators\tests\form
  *
  * тестирование генератора форм
  */
@@ -53,7 +53,7 @@ class EntityGeneratorTest extends TestCase
         $generator->modelClass = 'Post';
         $generator->ns = '\tests\runtime';
         $generator->queryNs = '\tests\runtime';
-        $generator->baseClass = 'ma3obblu\gii\generators\tests\entity\ActiveRecord';
+        $generator->baseClass = 'sorokinmedia\gii\generators\tests\entity\ActiveRecord';
         $generator->db = 'db';
         $generator->useTablePrefix = false;
         $generator->generateRelations = EntityGenerator::RELATIONS_ALL;
@@ -100,7 +100,7 @@ class EntityGeneratorTest extends TestCase
         $generator->modelClass = 'Post';
         $generator->ns = 'tests\runtime';
         $generator->queryNs = 'tests\runtime';
-        $generator->baseClass = 'ma3obblu\gii\generators\tests\entity\ActiveRecord';
+        $generator->baseClass = 'sorokinmedia\gii\generators\tests\entity\ActiveRecord';
         $generator->db = 'db';
         $generator->useTablePrefix = false;
         $generator->generateRelations = EntityGenerator::RELATIONS_ALL;

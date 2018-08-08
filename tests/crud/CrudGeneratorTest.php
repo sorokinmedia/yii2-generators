@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\crud;
+namespace sorokinmedia\gii\generators\tests\crud;
 
-use ma3obblu\gii\generators\tests\TestCase;
-use ma3obblu\gii\generators\crud\Generator as CrudGenerator;
+use sorokinmedia\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\crud\Generator as CrudGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
 
 /**
  * Class CrudGeneratorTest
- * @package ma3obblu\gii\generators\tests\crud
+ * @package sorokinmedia\gii\generators\tests\crud
  *
  * тестирование генератора CRUD
  */
@@ -41,7 +41,7 @@ class EntityGeneratorTest extends TestCase
     {
         $this->initDb();
         $generator = new CrudGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\crud\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\crud\Post';
         $generator->searchModelClass = 'tests\runtime\FakeSearch';
         $generator->controllerClass = 'tests\runtime\data\FakeController';
         $generator->viewPath = '@tests/runtime/views/fake';
@@ -57,7 +57,7 @@ class EntityGeneratorTest extends TestCase
     {
         $this->initDb();
         $generator = new CrudGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\crud\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\crud\Post';
         $generator->searchModelClass = 'tests\runtime\FakeSearch';
         $generator->controllerClass = 'tests\runtime\data\FakeController';
         $generator->viewPath = '@tests/runtime/views/fake';
@@ -75,7 +75,7 @@ class EntityGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new CrudGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\crud\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\crud\Post';
         $generator->searchModelClass = 'tests\runtime\data\PostSearch';
         $generator->componentNs = 'tests\runtime\data';
         $generator->controllerClass = 'tests\runtime\data\PostController';

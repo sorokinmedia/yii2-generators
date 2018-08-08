@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\handler;
+namespace sorokinmedia\gii\generators\tests\handler;
 
-use ma3obblu\gii\generators\tests\TestCase;
-use ma3obblu\gii\generators\handler\Generator as HandlerGenerator;
+use sorokinmedia\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\handler\Generator as HandlerGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
 
 /**
  * Class FormGeneratorTest
- * @package ma3obblu\gii\generators\tests\form
+ * @package sorokinmedia\gii\generators\tests\form
  *
  * тестирование генератора форм
  */
@@ -40,7 +40,7 @@ class HandlerGeneratorTest extends TestCase
     public function testValidateCorrect()
     {
         $generator = new HandlerGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\handler\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\handler\Post';
         $generator->handlerClass = 'PostHandler';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->needCreate = true;
@@ -58,9 +58,9 @@ class HandlerGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new HandlerGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\handler\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\handler\Post';
         $generator->handlerClass = 'PostHandler';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->needCreate = true;
@@ -88,9 +88,9 @@ class HandlerGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new HandlerGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\handler\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\handler\Post';
         $generator->handlerClass = 'PostHandler';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->needCreate = false;

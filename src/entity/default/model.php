@@ -1,7 +1,7 @@
 <?php
 use yii\web\View;
-use ma3obblu\gii\generators\entity\Generator;
-use ma3obblu\gii\generators\helpers\GeneratorHelper;
+use sorokinmedia\gii\generators\entity\Generator;
+use sorokinmedia\gii\generators\helpers\GeneratorHelper;
 /** @var $this View */
 /** @var $generator Generator */
 /** @var $className string class name */

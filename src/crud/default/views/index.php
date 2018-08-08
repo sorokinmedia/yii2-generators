@@ -1,6 +1,6 @@
 <?php
 use yii\web\View;
-use ma3obblu\gii\generators\crud\Generator;
+use sorokinmedia\gii\generators\crud\Generator;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 

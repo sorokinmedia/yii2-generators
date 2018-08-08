@@ -12,7 +12,7 @@ namespace tests\runtime;
  * @property string $google_link
  * @property int $sector_id
  */
-class PostAR extends \ma3obblu\gii\generators\tests\entity\ActiveRecord
+class PostAR extends \sorokinmedia\gii\generators\tests\entity\ActiveRecord
 {
     /**
      * {@inheritdoc}

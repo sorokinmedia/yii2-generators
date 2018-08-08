@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\entity;
+namespace sorokinmedia\gii\generators\entity;
 
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -15,7 +15,7 @@ use yii\helpers\VarDumper;
  * Генератор АR модели и класса сущности
  *
  * Class Generator
- * @package ma3obblu\gii\generators\entity
+ * @package sorokinmedia\gii\generators\entity
  *
  * @property string $db
  * @property string $ns

@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\form;
+namespace sorokinmedia\gii\generators\form;
 
 use yii\db\ActiveRecord;
 use yii\gii\CodeFile;
@@ -8,7 +8,7 @@ use yii\gii\CodeFile;
  * Генератор класса формы из класса сущности
  *
  * Class Generator
- * @package ma3obblu\gii\generators\form
+ * @package sorokinmedia\gii\generators\form
  *
  * @property string $modelClass
  * @property string $componentUrl

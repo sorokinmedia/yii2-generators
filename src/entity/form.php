@@ -1,5 +1,5 @@
 <?php
-use ma3obblu\gii\generators\entity\Generator;
+use sorokinmedia\gii\generators\entity\Generator;
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
 

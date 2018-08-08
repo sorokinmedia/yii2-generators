@@ -2,7 +2,7 @@
 namespace tests\runtime\data\forms;
 
 use yii\base\Model;
-use ma3obblu\gii\generators\tests\form\Post;
+use sorokinmedia\gii\generators\tests\form\Post;
 
 /**
  * Class PostForm

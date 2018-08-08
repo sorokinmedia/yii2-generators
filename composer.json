@@ -1,5 +1,5 @@
 {
-    "name": "ma3obblu/yii2-generators",
+    "name": "sorokinmedia/yii2-generators",
     "description": "Generators for Yii2(gii)",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "gii"],
@@ -7,13 +7,13 @@
     "authors": [
         {
             "name": "Ruslan Gilyazetdinov",
-            "email": "ma3obblu@gmail.com",
-            "homepage": "https://vk.com/ma3obblu"
+            "email": "Ma3oBblu@gmail.com",
+            "homepage": "https://vk.com/sorokinmedia"
         }
     ],
     "support": {
-        "issues": "https://github.com/Ma3oBblu/yii2-generators/issues?state=open",
-        "source": "https://github.com/Ma3oBblu/yii2-generators"
+        "issues": "https://github.com/sorokinmedia/yii2-generators/issues?state=open",
+        "source": "https://github.com/sorokinmedia/yii2-generators"
     },
     "require": {
         "yiisoft/yii2-gii": "~2.0"
@@ -23,21 +23,21 @@
     },
     "autoload": {
         "psr-4": {
-            "ma3obblu\\gii\\generators\\": "src/",
-            "ma3obblu\\gii\\generators\\form\\": "src/form/",
-            "ma3obblu\\gii\\generators\\entity\\": "src/entity/",
-            "ma3obblu\\gii\\generators\\handler\\": "src/handler/",
-            "ma3obblu\\gii\\generators\\crud\\": "src/crud/",
-            "ma3obblu\\gii\\generators\\fixture_class\\": "src/fixture_class/",
-            "ma3obblu\\gii\\generators\\fixture_data\\": "src/fixture_data/",
-            "ma3obblu\\gii\\generators\\tests\\": "tests/",
-            "ma3obblu\\gii\\generators\\tests\\form\\": "tests/form/",
-            "ma3obblu\\gii\\generators\\tests\\entity\\": "tests/entity/",
-            "ma3obblu\\gii\\generators\\tests\\handler\\": "tests/handler/",
-            "ma3obblu\\gii\\generators\\tests\\crud\\": "tests/crud/",
-            "ma3obblu\\gii\\generators\\tests\\fixture_class\\": "tests/fixture_class/",
-            "ma3obblu\\gii\\generators\\tests\\fixture_data\\": "tests/fixture_data/",
-            "ma3obblu\\gii\\generators\\helpers\\": "src/helpers/"
+            "sorokinmedia\\gii\\generators\\": "src/",
+            "sorokinmedia\\gii\\generators\\form\\": "src/form/",
+            "sorokinmedia\\gii\\generators\\entity\\": "src/entity/",
+            "sorokinmedia\\gii\\generators\\handler\\": "src/handler/",
+            "sorokinmedia\\gii\\generators\\crud\\": "src/crud/",
+            "sorokinmedia\\gii\\generators\\fixture_class\\": "src/fixture_class/",
+            "sorokinmedia\\gii\\generators\\fixture_data\\": "src/fixture_data/",
+            "sorokinmedia\\gii\\generators\\tests\\": "tests/",
+            "sorokinmedia\\gii\\generators\\tests\\form\\": "tests/form/",
+            "sorokinmedia\\gii\\generators\\tests\\entity\\": "tests/entity/",
+            "sorokinmedia\\gii\\generators\\tests\\handler\\": "tests/handler/",
+            "sorokinmedia\\gii\\generators\\tests\\crud\\": "tests/crud/",
+            "sorokinmedia\\gii\\generators\\tests\\fixture_class\\": "tests/fixture_class/",
+            "sorokinmedia\\gii\\generators\\tests\\fixture_data\\": "tests/fixture_data/",
+            "sorokinmedia\\gii\\generators\\helpers\\": "src/helpers/"
         }
     },
     "extra": {

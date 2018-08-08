@@ -1,7 +1,7 @@
 <?php
-namespace ma3obblu\gii\generators\fixture_data;
+namespace sorokinmedia\gii\generators\fixture_data;
 
-use ma3obblu\gii\generators\helpers\GeneratorHelper;
+use sorokinmedia\gii\generators\helpers\GeneratorHelper;
 use yii\db\ActiveRecord;
 use yii\db\Exception;
 use yii\gii\CodeFile;
@@ -9,7 +9,7 @@ use yii\helpers\Inflector;
 
 /**
  * Class Generator
- * @package ma3obblu\gii\generators\fixture_data
+ * @package sorokinmedia\gii\generators\fixture_data
  *
  * @property string $modelClass
  * @property string $pkFirstName

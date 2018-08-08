@@ -1,5 +1,5 @@
 <?php
-namespace ma3obblu\gii\generators\handler;
+namespace sorokinmedia\gii\generators\handler;
 
 use yii\db\ActiveRecord;
 use yii\gii\CodeFile;
@@ -8,7 +8,7 @@ use yii\gii\CodeFile;
  * Генератор класса хендлера, интерфейсов и экшенов
  *
  * Class Generator
- * @package ma3obblu\gii\generators\handler
+ * @package sorokinmedia\gii\generators\handler
  *
  * @property string $modelClass
  * @property string $handlerClass

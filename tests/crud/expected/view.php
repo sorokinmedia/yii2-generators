@@ -1,7 +1,7 @@
 <?php
 use yii\bootstrap\Html;
 use yii\widgets\DetailView;
-use ma3obblu\gii\generators\tests\crud\Post;
+use sorokinmedia\gii\generators\tests\crud\Post;
 
 /** @var $this yii\web\View */
 /** @var $model Post */

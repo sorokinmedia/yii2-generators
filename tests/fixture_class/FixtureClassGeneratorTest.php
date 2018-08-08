@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture_class;
+namespace sorokinmedia\gii\generators\tests\fixture_class;
 
-use ma3obblu\gii\generators\fixture_class\Generator as FixtureGenerator;
+use sorokinmedia\gii\generators\fixture_class\Generator as FixtureGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
-use ma3obblu\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\tests\TestCase;
 
 /**
  * Class FixtureClassGeneratorTest
- * @package ma3obblu\gii\generators\tests\fixture_class
+ * @package sorokinmedia\gii\generators\tests\fixture_class
  */
 class FixtureClassGeneratorTest extends TestCase
 {
@@ -34,7 +34,7 @@ class FixtureClassGeneratorTest extends TestCase
     public function testValidateCorrect()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
 
@@ -47,7 +47,7 @@ class FixtureClassGeneratorTest extends TestCase
     public function testDefaultNames()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
 
@@ -61,7 +61,7 @@ class FixtureClassGeneratorTest extends TestCase
     public function testSpecificNames()
     {
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_class\Post';
         $generator->fixtureClass = 'PostCustomFixture';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataFile = 'post-custom.php';
@@ -79,7 +79,7 @@ class FixtureClassGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FixtureGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\fixture_class\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\fixture_class\Post';
         $generator->fixtureNs = 'tests\runtime';
         $generator->dataPath = '@tests/runtime/data';
 

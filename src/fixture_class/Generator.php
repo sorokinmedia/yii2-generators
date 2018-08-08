@@ -1,12 +1,12 @@
 <?php
-namespace ma3obblu\gii\generators\fixture_class;
+namespace sorokinmedia\gii\generators\fixture_class;
 
 use yii\db\ActiveRecord;
 use yii\gii\CodeFile;
 
 /**
  * Class Generator
- * @package ma3obblu\gii\generators\fixture
+ * @package sorokinmedia\gii\generators\fixture
  *
  * @property string $modelClass
  * @property string $fixtureClass

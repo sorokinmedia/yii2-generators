@@ -2,7 +2,7 @@
 namespace tests\runtime;
 
 use yii\test\ActiveFixture;
-use ma3obblu\gii\generators\tests\fixture_class\Post;
+use sorokinmedia\gii\generators\tests\fixture_class\Post;
 
 /**
  * Class PostFixture

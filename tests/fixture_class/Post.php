@@ -1,11 +1,11 @@
 <?php
-namespace ma3obblu\gii\generators\tests\fixture_class;
+namespace sorokinmedia\gii\generators\tests\fixture_class;
 
 use yii\db\ActiveRecord;
 
 /**
  * Class Post
- * @package ma3obblu\gii\generators\tests\fixture
+ * @package sorokinmedia\gii\generators\tests\fixture
  */
 class Post extends ActiveRecord
 {

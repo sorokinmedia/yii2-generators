@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\tests\form;
+namespace sorokinmedia\gii\generators\tests\form;
 
-use ma3obblu\gii\generators\tests\TestCase;
-use ma3obblu\gii\generators\form\Generator as FormGenerator;
+use sorokinmedia\gii\generators\tests\TestCase;
+use sorokinmedia\gii\generators\form\Generator as FormGenerator;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\gii\CodeFile;
 
 /**
  * Class FormGeneratorTest
- * @package ma3obblu\gii\generators\tests\form
+ * @package sorokinmedia\gii\generators\tests\form
  *
  * тестирование генератора форм
  */
@@ -37,7 +37,7 @@ class FormGeneratorTest extends TestCase
     public function testValidateCorrect()
     {
         $generator = new FormGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
@@ -51,13 +51,13 @@ class FormGeneratorTest extends TestCase
     public function testDefaultNames()
     {
         $generator = new FormGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
 
         $this->assertEquals('PostForm', $generator->getFormClassName());
-        $this->assertEquals('/Users/ma3obblu/sorokin/yii2-generators/tests/runtime/data/forms/PostForm.php', $generator->getFilePath());
+        $this->assertEquals('/Users/sorokinmedia/sorokin/yii2-generators/tests/runtime/data/forms/PostForm.php', $generator->getFilePath());
     }
 
     /**
@@ -68,7 +68,7 @@ class FormGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FormGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
@@ -87,7 +87,7 @@ class FormGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FormGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';
@@ -107,7 +107,7 @@ class FormGeneratorTest extends TestCase
         $this->initDb();
 
         $generator = new FormGenerator();
-        $generator->modelClass = 'ma3obblu\gii\generators\tests\form\Post';
+        $generator->modelClass = 'sorokinmedia\gii\generators\tests\form\Post';
         $generator->componentUrl = '@tests/runtime/data';
         $generator->formClass = 'PostForm';
         $generator->formUrl = 'forms';

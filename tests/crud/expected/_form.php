@@ -4,7 +4,7 @@ use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /** @var $this View */
-/** @var $model ma3obblu\gii\generators\tests\crud\Post */
+/** @var $model sorokinmedia\gii\generators\tests\crud\Post */
 /** @var $form ActiveForm */
 ?>
 <div class="post-form">

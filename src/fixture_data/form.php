@@ -1,7 +1,7 @@
 <?php
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
-use ma3obblu\gii\generators\fixture_data\Generator;
+use sorokinmedia\gii\generators\fixture_data\Generator;
 
 /* @var $this View */
 /* @var $form ActiveForm */

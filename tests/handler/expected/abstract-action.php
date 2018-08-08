@@ -2,7 +2,7 @@
 namespace tests\runtime\data\handlers\Post\actions;
 
 use tests\runtime\data\handlers\Post\interfaces\ActionExecutable;
-use ma3obblu\gii\generators\tests\handler\Post;
+use sorokinmedia\gii\generators\tests\handler\Post;
 
 /**
  * Class AbstractAction

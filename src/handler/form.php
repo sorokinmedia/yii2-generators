@@ -1,7 +1,7 @@
 <?php
 use yii\web\View;
 use yii\bootstrap\ActiveForm;
-use ma3obblu\gii\generators\handler\Generator;
+use sorokinmedia\gii\generators\handler\Generator;
 
 /** @var $this View */
 /** @var $form ActiveForm */

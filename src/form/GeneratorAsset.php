@@ -1,15 +1,15 @@
 <?php
-namespace ma3obblu\gii\generators\form;
+namespace sorokinmedia\gii\generators\form;
 
 use yii\web\AssetBundle;
 
 /**
  * Class GeneratorAsset
- * @package ma3obblu\gii\generators\form
+ * @package sorokinmedia\gii\generators\form
  */
 class GeneratorAsset extends AssetBundle
 {
-    public $sourcePath = '@ma3obblu/gii/generators/form/assets';
+    public $sourcePath = '@sorokinmedia/gii/generators/form/assets';
     public $js = [
         'generator.js',
     ];

@@ -1,8 +1,8 @@
 <?php
 use yii\web\View;
 use yii\db\TableSchema;
-use ma3obblu\gii\generators\entity\Generator;
-use ma3obblu\gii\generators\helpers\GeneratorHelper;
+use sorokinmedia\gii\generators\entity\Generator;
+use sorokinmedia\gii\generators\helpers\GeneratorHelper;
 
 /** @var $this View */
 /** @var $generator Generator */

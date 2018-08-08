@@ -3,7 +3,7 @@ namespace tests\runtime\data;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use ma3obblu\gii\generators\tests\crud\Post;
+use sorokinmedia\gii\generators\tests\crud\Post;
 
 /**
  * Class PostSearch

@@ -1,8 +1,8 @@
 <?php
 use yii\web\View;
 use yii\base\Model;
-use ma3obblu\gii\generators\form\Generator;
-use ma3obblu\gii\generators\helpers\GeneratorHelper;
+use sorokinmedia\gii\generators\form\Generator;
+use sorokinmedia\gii\generators\helpers\GeneratorHelper;
 
 /** @var $this View */
 /** @var $generator Generator */

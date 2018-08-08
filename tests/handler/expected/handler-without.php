@@ -4,7 +4,7 @@ namespace tests\runtime\data\handlers\Post;
 use tests\runtime\data\handlers\Post\interfaces\{
     Update
 };
-use ma3obblu\gii\generators\tests\handler\Post;
+use sorokinmedia\gii\generators\tests\handler\Post;
 
 /**
  * Class PostHandler

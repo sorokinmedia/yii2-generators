@@ -1,6 +1,6 @@
 <?php
 use yii\web\View;
-use ma3obblu\gii\generators\fixture_class\Generator;
+use sorokinmedia\gii\generators\fixture_class\Generator;
 
 /** @var $this View */
 /** @var $generator Generator */

@@ -1,7 +1,7 @@
 <?php
 namespace tests\runtime\data;
 
-use ma3obblu\gii\generators\tests\crud\Post;
+use sorokinmedia\gii\generators\tests\crud\Post;
 use tests\runtime\data\PostSearch;
 use tests\runtime\data\handlers\Post\PostHandler;
 use tests\runtime\data\forms\PostForm;
