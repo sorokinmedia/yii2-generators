@@ -1,5 +1,7 @@
 # Generators for Gii module of Yii2 Framework
 
+[![Total Downloads](https://img.shields.io/packagist/dt/sorokinmedia/yii2-generators.svg)](https://packagist.org/packages/sorokinmedia/yii2-generators)
+
 The extension allows to generate some types of classes on base of existing `ActiveRecord` model class. 
 
 ## Installation
